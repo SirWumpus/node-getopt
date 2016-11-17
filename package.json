@@ -1,5 +1,5 @@
 {
-    "name": "getopt",
+    "name": "classic-getopt",
     "main": "index.js",
     "version": "1.0.0",
     "description": "Classic POSIX getopt(3).",
