@@ -42,10 +42,11 @@ Example
 -------
 
 ```lang=javascript
-const Getopt = require("getopt");
 
-let ch;
-let opt = new Getopt(process.argv, "ab:");
+const Getopt = require("classic-getopt");
+
+var ch;
+var opt = new Getopt(process.argv, "ab:");
 
 while ((ch = opt.next()) !== -1) {
     switch (ch) {
@@ -62,7 +63,7 @@ while ((ch = opt.next()) !== -1) {
 }
 
 console.log("optind=%d", opt.optind);
-for (let argi = opt.optind; argi < opt.args.length; argi++)
+for (var argi = opt.optind; argi < opt.args.length; argi++)
     console.log("arg=%s", opt.args[argi]);
 ```
 
