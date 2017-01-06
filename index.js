@@ -33,19 +33,19 @@
  */
 function Getopt(args, opts, opterr)
 {
-    this.optind = 2;
-    this.offset = 1;
-    this.args = args;
-    this.opts = opts;
-    if (opts.charAt(0) === ':') {
+	this.optind = 2;
+	this.offset = 1;
+	this.args = args;
+	this.opts = opts;
+	if (opts.charAt(0) === ':') {
 		this.opterr = false;
 	} else if (typeof opterr === 'boolean') {
-    	this.opterr = opterr;
+		this.opterr = opterr;
 	}
 }
 
 Getopt.prototype = {
-    STOP: -1,
+	STOP: -1,
 	UNKNOWN: '?',
 	MISSING: ':',
 
@@ -55,62 +55,62 @@ Getopt.prototype = {
 	optarg: null,
 	opterr: true,
 
-    /**
-     * @return
-     *  Next option character or -1 (STOP) for end of arguments;
-     *  otherwise '?' (UNKNOWN) for an unknown option or ':'
-     *  (MISSING) for a missing option argument if the options
-     *  string has a leading colon (:).
-     */
-    next: function () {
+	/**
+	 * @return
+	 *  Next option character or -1 (STOP) for end of arguments;
+	 *  otherwise '?' (UNKNOWN) for an unknown option or ':'
+	 *  (MISSING) for a missing option argument if the options
+	 *  string has a leading colon (:).
+	 */
+	next: function () {
 		let index;
 
 		/* End of arguments? */
 		if (this.args.length <= this.optind)
-            return this.STOP;
+			return this.STOP;
 
 		/* Argument is an option? */
-        if (this.offset <= 1 && this.args[this.optind].charAt(0) != '-')
-            return this.STOP;
+		if (this.offset <= 1 && this.args[this.optind].charAt(0) != '-')
+			return this.STOP;
 
-        if (this.args[this.optind].length <= this.offset)
-            return this.STOP;
+		if (this.args[this.optind].length <= this.offset)
+			return this.STOP;
 
 		/* Next option letter. */
-        this.optopt = this.args[this.optind].charAt(this.offset++);
+		this.optopt = this.args[this.optind].charAt(this.offset++);
 
 		/* "--" explicit end of options? */
-        if (this.offset == 2 && this.optopt == '-' && this.args[this.optind].length == 2) {
+		if (this.offset == 2 && this.optopt == '-' && this.args[this.optind].length == 2) {
 			this.optind++;
-            return this.STOP;
+			return this.STOP;
 		}
 
-        if (this.optopt == ':' || (index = this.opts.indexOf(this.optopt)) < 0) {
+		if (this.optopt == ':' || (index = this.opts.indexOf(this.optopt)) < 0) {
 			/* Not an option! */
 			if (this.opterr)
 				console.error("unknown option -%s", this.optopt);
-            return this.UNKNOWN;
+			return this.UNKNOWN;
 		}
 
 		/* Option expects an argument? */
-        if (index+1 < this.opts.length && this.opts.charAt(index+1) == ':') {
-            if (this.offset < this.args[this.optind].length) {
+		if (index+1 < this.opts.length && this.opts.charAt(index+1) == ':') {
+			if (this.offset < this.args[this.optind].length) {
 				/* -f{arg} */
-                this.optarg = this.args[this.optind++].substring(this.offset);
+				this.optarg = this.args[this.optind++].substring(this.offset);
 			} else if (this.args.length <= ++this.optind) {
-                if (this.opts.charAt(0) == ':')
-                    return this.MISSING;
-                if (this.opterr)
-                    console.error("Option -%s argument missing.", this.optopt);
-                return this.UNKNOWN;
+				if (this.opts.charAt(0) == ':')
+					return this.MISSING;
+				if (this.opterr)
+					console.error("Option -%s argument missing.", this.optopt);
+				return this.UNKNOWN;
 			} else {
 				/* -f {arg} */
-                this.optarg = this.args[this.optind++];
+				this.optarg = this.args[this.optind++];
 			}
-            this.offset = 1;
-        } else if (this.args[this.optind].length <= this.offset) {
+			this.offset = 1;
+		} else if (this.args[this.optind].length <= this.offset) {
 			/* Next argument. */
-            this.offset = 1;
+			this.offset = 1;
 			this.optind++;
 		}
 
