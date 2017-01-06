@@ -10,12 +10,12 @@ API
 
 Parse an array of strings for options according to opts.
 
-An argument that starts with a leading minus (-) is an option, "-f", or a list of options, "-fgh". Options and arguments can appear in any order until a "--" argument is seen, which indicates the remainder are only arguments.
+An argument that starts with a leading hyphen (-) followed by a single character, "-f".  An option is either an option-flag, "-f", or option-argument, "-x arg".  Option-flags can appear together in any order as a list, "-hfg"; an option-argument can appear at the end of list of option-flags, "-hfgx arg" or "-hfgxarg".  Options can appear in any order until a "--" argument is seen, which indicates the remainder are only arguments.
 
 **Parameters**
  * `argv` : Array of string arguments.
 
- * `opts` : String of allowed option letters and modifiers. A letter followed by a colon (:) requires an argument as the suffix or the next argument, `-f{arg}` or `-f {arg}`.
+ * `opts` : String of allowed option letters and modifiers.  A letter followed by a colon (:) requires an argument as the suffix or the next argument, `-f{arg}` or `-f {arg}`.
 
  * `opterr` : OPTIONAL boolean.  True (default) to write error messages to console.error().  A leading colon (:) in opts string will also disable error messages.
 
