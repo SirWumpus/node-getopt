@@ -1,49 +1,47 @@
 {
-    "name": "classic-getopt",
-    "main": "index.js",
-    "version": "1.0.0",
-    "description": "Classic POSIX getopt(3).",
-    "author": {
-        "name": "Anthony Howe",
-        "email": "achowe@snert.com"
-    },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/SirWumpus/getopt.git"
-    },
-    "dependencies": {
-    },
-    "devDependencies": {
-    },
-    "jshintConfig": {
-        "bitwise": true,
-        "curly": true,
-        "eqeqeq": true,
-        "forin": true,
-        "freeze": true,
-        "globalstrict": true,
-        "immed": true,
-        "indent": 4,
-        "loopfunc": true,
-        "moz": true,
-        "newcap": true,
-        "noarg": true,
-        "node": true,
-        "noempty": true,
-        "nonew": true,
-        "trailing": true,
-        "undef": true,
-        "smarttabs": true,
-        "strict": true,
-        "validthis": true,
-        "globals": {
-            "describe": false,
-            "it": false,
-            "before": false,
-            "beforeEach": false,
-            "after": false,
-            "afterEach": false
-        }
+  "name": "classic-getopt",
+  "main": "index.js",
+  "version": "1.0.2",
+  "description": "Classic POSIX getopt(3).",
+  "author": {
+    "name": "Anthony Howe",
+    "email": "achowe@snert.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SirWumpus/getopt.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "jshintConfig": {
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "freeze": true,
+    "globalstrict": true,
+    "immed": true,
+    "indent": 4,
+    "loopfunc": true,
+    "moz": true,
+    "newcap": true,
+    "noarg": true,
+    "node": true,
+    "noempty": true,
+    "nonew": true,
+    "trailing": true,
+    "undef": true,
+    "smarttabs": true,
+    "strict": true,
+    "validthis": true,
+    "globals": {
+      "describe": false,
+      "it": false,
+      "before": false,
+      "beforeEach": false,
+      "after": false,
+      "afterEach": false
     }
+  }
 }
