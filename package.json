@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/SirWumpus/getopt.git"
+    "url": "git://github.com/SirWumpus/node-getopt.git"
   },
   "dependencies": {},
   "devDependencies": {},
