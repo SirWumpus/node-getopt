@@ -1,7 +1,7 @@
 {
   "name": "classic-getopt",
   "main": "index.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Classic POSIX getopt(3).",
   "author": {
     "name": "Anthony Howe",
